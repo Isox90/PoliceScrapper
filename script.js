@@ -18,6 +18,13 @@ fetch('data.json')
         data.forEach(point => {
             L.marker([point.location.y, point.location.x], {
                 title: point.type // Ustawienie tytułu markera
+                popup: L.popup({
+                    content: ${new Date(point.pubMillis).toLocaleString()}
+                })
             }).addTo(map);
         });
     });
+
+marker.on('click', function() {
+    this.openPopup();
+});
