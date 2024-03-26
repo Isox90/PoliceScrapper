@@ -1,4 +1,3 @@
-L = require('leaflet');
 // Utwórz mapę
 const map = L.map('map').setView([50.264173, 18.890753], 10); // Przykładowe centrowanie na regionie Polski
 
