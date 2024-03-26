@@ -1,4 +1,12 @@
+img {
+    max-height: 100%;
+}
+
+.my-leaflet-map-container img {
+    max-height: none;
+}
+
 #map {
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
