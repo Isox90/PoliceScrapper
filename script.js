@@ -16,12 +16,15 @@ fetch('data.json')
     .then(data => {
         // Dodaj markery z danych
         data.forEach(point => {
-            L.marker([point.location.y, point.location.x], {
-                title: point.type // Ustawienie tytułu markera
-                popup: L.popup({
-                    content: ${new Date(point.pubMillis).toLocaleString()}
-                })
-            }).addTo(map);
+           let marker = L.marker([point.location.y, point.location.x], {
+              title: point.type
+           }).addTo(map);
+        
+           marker.on('click', function() {
+              let popup = L.popup({
+                  content: new Date(point.pubMillis).toLocaleString()
+              }).openOn(marker);
+           });
         });
     });
 
